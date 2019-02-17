@@ -30,10 +30,27 @@ bot.on('message', message => {
         if (text == "")
             text = helpText;
 
-         text = text.replace(/```/g, '\'\'\'');
+         //cli parsing
+          program
+            .version('0.1.0')
+             .option('-f, --cow' <cow>, 'cowfile')
+             .option('-e, --eyes' <eyes>, 'eyes for the cow')
+             .option('-T, --tongue' <tongue>, 'Add bbq sauce')
+             .option('-n, --wrap [type]', 'will message get word wrapped')
+             .option('-W, --wrapLength' <wrapLength>, 'when to wrap')
+             //need to figure out how to do mode
+             .parse(text);
+        
+        text = program.args; //text to display is not used be otions so this is an easy way to filter out the options
+        text = text.replace(/```/g, '\'\'\'');
         
         var cowSaid = cowsay.say({
             text: text,
+            cow: program.cow,
+            eyes: program.eyes,
+            tongue: program.tongue,
+            wrap: program.wrap,
+            wrapLength: program.wrapLength
         });
 
         message.channel.send('```' + cowSaid + '```');
@@ -49,10 +66,28 @@ bot.on('message', message => {
         if (text == "")
             text = helpText;
 
+         //cli parsing
+          program
+            .version('0.1.0')
+             .option('-f, --cow' <cow>, 'cowfile')
+             .option('-e, --eyes' <eyes>, 'eyes for the cow')
+             .option('-T, --tongue' <tongue>, 'Add bbq sauce')
+             .option('-n, --wrap [type]', 'will message get word wrapped')
+             .option('-W, --wrapLength' <wrapLength>, 'when to wrap')
+             //need to figure out how to do mode 
+             .parse(text);
+              
+         
+         text = program.args; //text to display is not used be otions so this is an easy way to filter out the options
          text = text.replace(/```/g, '\'\'\'');
-        
+
         var cowSaid = cowsay.think({
             text: text,
+            cow: program.cow,
+            eyes: program.eyes,
+            tongue: program.tongue,
+            wrap: program.wrap,
+            wrapLength: program.wrapLength
         });
 
         message.channel.send('```' + cowSaid + '```');
