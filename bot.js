@@ -2,6 +2,7 @@ var cowsay = require('cowsay');
 var Discord = require('discord.js');
 var auth = require('./auth.json');
 var blacklist = require('./blacklist.json');
+var program = require('commander');
 
 // Initialize Discord Bot
 var bot = new Discord.Client();
@@ -66,4 +67,3 @@ var cleanupFn = function cleanup() {
 
 process.on('SIGINT', cleanupFn);
 process.on('SIGTERM', cleanupFn);
-
