@@ -104,5 +104,5 @@ for (var i = 1; i < cmd.length; i++)
 text = text.slice(0, -1)
 //at this point your command should be prossessed and split into strings / booleans ready 
 //to be used by cow.say
-retrun { text:textx , eyes:eyesx , cow:cowx , tongue:tonguex , wrap:wrapx , wrapLength:wrapLengthx , mode:modex};
+return { text:textx , eyes:eyesx , cow:cowx , tongue:tonguex , wrap:wrapx , wrapLength:wrapLengthx , mode:modex};
 }
