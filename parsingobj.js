@@ -1,3 +1,10 @@
+var text
+var eyes;
+var cow;
+var tongue;
+var wrap;
+var wrapLength;
+var mode;
 function parsingobj(x)
 {
 var cmd = x.split(' '); //splits the input up at - for prossessing
@@ -99,10 +106,3 @@ text = text.slice(0, -1)
 //to be used by cow.say
 retrun { text , eyes , cow , tongue , wrap , wrapLength , mode};
 }
-var text
-var eyes;
-var cow;
-var tongue;
-var wrap;
-var wrapLength;
-var mode;
