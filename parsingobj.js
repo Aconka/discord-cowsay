@@ -1,10 +1,10 @@
-var text
-var eyes;
-var cow;
-var tongue;
-var wrap;
-var wrapLength;
-var mode;
+var textx;
+var eyesx;
+var cowx;
+var tonguex;
+var wrapx;
+var wrapLengthx;
+var modex;
 function parsingobj(x)
 {
 var cmd = x.split(' '); //splits the input up at - for prossessing
@@ -15,94 +15,94 @@ for (var i = 1; i < cmd.length; i++)
 	{
 		if(cmd[i].localeCompare('-e') == 0)//if eye
 		{
-			eyes = cmd[i + 1];
+			eyesx = cmd[i + 1];
 			i += 1;
 		}
 		else
 		{
-			eyes = cmd[i].substring('-e'.length);
+			eyesx = cmd[i].substring('-e'.length);
 		}
 	}
 	else if (cmd[i].startsWith('-f')) //if cow
 	{
 		if(cmd[i].localeCompare('-f') == 0)
 		{
-			cow = cmd[i + 1];
+			cowx = cmd[i + 1];
 			i += 1;
 		}
 		else
 		{
-			cow = cmd[i].substring('-f'.length);
+			cowx = cmd[i].substring('-f'.length);
 		}
 	}
 	else if (cmd[i].startsWith('-T')) //if tongue
 	{
 		if(cmd[i].localeCompare('-T') == 0)
 		{
-			tongue = cmd[i + 1];
+			tonguex = cmd[i + 1];
 			i += 1;
 		}
 		else
 		{
-			tongue = cmd[i].substring('-T'.length);
+			tonguex = cmd[i].substring('-T'.length);
 		}
 	}
 	else if (cmd[i].startsWith('-W')) //if wrapLength
 	{
 		if(cmd[i].localeCompare('-W') == 0)
 		{
-			wrapLength = parseInt(cmd[i + 1]);
+			wrapLengthx = parseInt(cmd[i + 1]);
 			i += 1;
 		}
 		else
 		{
-			wrapLength = parseInt(cmd[i].substring('-W'.length));
+			wrapLengthx = parseInt(cmd[i].substring('-W'.length));
 		}
 	}
 	else if (cmd[i].localeCompare('-b') == 0) //if b mode
 	{
-		mode = 'b';
+		modex = 'b';
 	}
 	else if (cmd[i].localeCompare('-d') == 0) //if d mode
 	{
-		mode = 'd';
+		modex = 'd';
 	}
 	else if (cmd[i].localeCompare('-g') == 0) //if g mode
 	{
-		mode = 'g';
+		modex = 'g';
 	}
 	else if (cmd[i].localeCompare('-p') == 0) //if p mode
 	{
-		mode = 'p';
+		modex = 'p';
 	}
 	else if (cmd[i].localeCompare('-s') == 0) //if s mode
 	{
-		mode = 's';
+		modex = 's';
 	}
 	else if (cmd[i].localeCompare('-t') == 0) //if t mode
 	{
-		mode = 't';
+		modex = 't';
 	}
 	else if (cmd[i].localeCompare('-w') == 0) //if w mode
 	{
-		mode = 'w';
+		modex = 'w';
 	}
 	else if (cmd[i].localeCompare('-y') == 0) //if y mode
 	{
-		mode = 'y';
+		modex = 'y';
 	}
 	else if (cmd[i].localeCompare('-n') == 0) //if wrap
 	{
-		wrap = true;
+		wrapx = true;
 	}
 	else //if not a comand then it adds it to the message
 	{
-		text += cmd[i] + ' ';
+		textx += cmd[i] + ' ';
 	}
 	//proboly should have uesd a case statement but what ever
 }
 text = text.slice(0, -1)
 //at this point your command should be prossessed and split into strings / booleans ready 
 //to be used by cow.say
-retrun { text , eyes , cow , tongue , wrap , wrapLength , mode};
+retrun { text:textx , eyes:eyesx , cow:cowx , tongue:tonguex , wrap:wrapx , wrapLength:wrapLengthx , mode:modex};
 }
