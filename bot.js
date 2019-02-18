@@ -1,7 +1,7 @@
 var cowsay = require('cowsay');
 var Discord = require('discord.js');
 var auth = require('./auth.json');
-var parsing = require('./parsingobj.js');
+var parsingobj = require('./parsingobj.js');
 var blacklist = require('./blacklist.json');
 
 // Initialize Discord Bot
