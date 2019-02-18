@@ -41,7 +41,7 @@ bot.on('message', message => {
              //need to figure out how to do mode
              .parse(text);
         
-        text = program.args; //text to display is not used be otions so this is an easy way to filter out the options
+        text = String(program.args); //text to display is not used be otions so this is an easy way to filter out the options
         text = text.replace(/```/g, '\'\'\'');
         
         var cowSaid = cowsay.say({
@@ -78,7 +78,7 @@ bot.on('message', message => {
              .parse(text);
               
          
-         text = program.args; //text to display is not used be otions so this is an easy way to filter out the options
+         text = String(program.args); //text to display is not used be otions so this is an easy way to filter out the options
          text = text.replace(/```/g, '\'\'\'');
 
         var cowSaid = cowsay.think({
