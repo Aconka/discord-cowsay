@@ -31,7 +31,7 @@ bot.on('message', message => {
             text = helpText;
 
          text = text.replace(/```/g, '\'\'\'');
-         var comands = parsingobj(text);
+         var comands = new parsingobj(text);
         var cowSaid = cowsay.say(comands);
 
         message.channel.send('```' + cowSaid + '```');
@@ -48,7 +48,7 @@ bot.on('message', message => {
             text = helpText;
 
          text = text.replace(/```/g, '\'\'\'');
-         var comands = parsingobj(text);
+         var comands = new parsingobj(text);
         var cowSaid = cowsay.think(comands);
 
         message.channel.send('```' + cowSaid + '```');
