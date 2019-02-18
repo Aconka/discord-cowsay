@@ -33,11 +33,11 @@ bot.on('message', message => {
          //cli parsing
           program
             .version('0.1.0')
-             .option('-f, --cow' <cow>, 'cowfile')
-             .option('-e, --eyes' <eyes>, 'eyes for the cow')
-             .option('-T, --tongue' <tongue>, 'Add bbq sauce')
-             .option('-n, --wrap [type]', 'will message get word wrapped')
-             .option('-W, --wrapLength' <wrapLength>, 'when to wrap')
+             .option('-f, --cow <cow>', 'cowfile')
+             .option('-e, --eyes <eyes>', 'eyes for the cow')
+             .option('-T, --tongue <tongue>', 'Add bbq sauce')
+             .option('-n, --wrap <wrap>', 'will message get word wrapped')
+             .option('-W, --wrapLength <wrapLength>', 'when to wrap')
              //need to figure out how to do mode
              .parse(text);
         
@@ -69,11 +69,11 @@ bot.on('message', message => {
          //cli parsing
           program
             .version('0.1.0')
-             .option('-f, --cow' <cow>, 'cowfile')
-             .option('-e, --eyes' <eyes>, 'eyes for the cow')
-             .option('-T, --tongue' <tongue>, 'Add bbq sauce')
-             .option('-n, --wrap [type]', 'will message get word wrapped')
-             .option('-W, --wrapLength' <wrapLength>, 'when to wrap')
+             .option('-f, --cow <cow>', 'cowfile')
+             .option('-e, --eyes <eyes>', 'eyes for the cow')
+             .option('-T, --tongue <tongue>', 'Add bbq sauce')
+             .option('-n, --wrap <wrap>', 'will message get word wrapped')
+             .option('-W, --wrapLength <wrapLength>', 'when to wrap')
              //need to figure out how to do mode 
              .parse(text);
               
