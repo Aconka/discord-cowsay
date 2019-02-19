@@ -32,25 +32,25 @@ bot.on('message', message => {
 
          //cli parsing
           program
-            .version('0.1.0')
-             .option('-f, --cow <cow>', 'cowfile')
-             .option('-e, --eyes <eyes>', 'eyes for the cow')
-             .option('-T, --tongue <tongue>', 'Add bbq sauce')
-             .option('-n, --wrap <wrap>', 'will message get word wrapped')
-             .option('-W, --wrapLength <wrapLength>', 'when to wrap')
+             .option('-e <eyes>', 'eyes for the cow')
+             .option('-T <tongue>', 'Add bbq sauce')
              //need to figure out how to do mode
              .parse(text);
         
         text = String(program.args); //text to display is not used be otions so this is an easy way to filter out the options
         text = text.replace(/```/g, '\'\'\'');
         
+	//hank debug stuff
+	console.log(text);
+	console.log(program.e);
+	console.log(program.T);
+	//end debug
+
+
         var cowSaid = cowsay.say({
             text: text,
-            cow: program.cow,
-            eyes: program.eyes,
-            tongue: program.tongue,
-            wrap: program.wrap,
-            wrapLength: program.wrapLength
+            e: program.e,
+            T: program.T,
         });
 
         message.channel.send('```' + cowSaid + '```');
@@ -68,12 +68,8 @@ bot.on('message', message => {
 
          //cli parsing
           program
-            .version('0.1.0')
-             .option('-f, --cow <cow>', 'cowfile')
-             .option('-e, --eyes <eyes>', 'eyes for the cow')
-             .option('-T, --tongue <tongue>', 'Add bbq sauce')
-             .option('-n, --wrap <wrap>', 'will message get word wrapped')
-             .option('-W, --wrapLength <wrapLength>', 'when to wrap')
+             .option('-e <eyes>', 'eyes for the cow')
+             .option('-T <tongue>', 'Add bbq sauce')
              //need to figure out how to do mode 
              .parse(text);
               
@@ -81,13 +77,16 @@ bot.on('message', message => {
          text = String(program.args); //text to display is not used be otions so this is an easy way to filter out the options
          text = text.replace(/```/g, '\'\'\'');
 
+	//hank debug stuff
+	console.log(text);
+	console.log(program.e);
+	console.log(program.T);
+	//end debug
+
         var cowSaid = cowsay.think({
             text: text,
-            cow: program.cow,
-            eyes: program.eyes,
-            tongue: program.tongue,
-            wrap: program.wrap,
-            wrapLength: program.wrapLength
+            e: program.e,
+            T: program.T,
         });
 
         message.channel.send('```' + cowSaid + '```');
