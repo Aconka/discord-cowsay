@@ -3,6 +3,7 @@ var Discord = require('discord.js');
 var auth = require('./auth.json');
 var blacklist = require('./blacklist.json');
 var program = require('commander');
+var util = require('util')
 
 // Initialize Discord Bot
 var bot = new Discord.Client();
@@ -44,6 +45,7 @@ bot.on('message', message => {
 	console.log(text);
 	console.log(program.e);
 	console.log(program.T);
+	console.log(util.inspect(program));
 	//end debug
 
 
@@ -81,6 +83,7 @@ bot.on('message', message => {
 	console.log(text);
 	console.log(program.e);
 	console.log(program.T);
+	console.log(util.inspect(program));
 	//end debug
 
         var cowSaid = cowsay.think({
