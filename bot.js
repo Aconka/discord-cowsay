@@ -1,7 +1,6 @@
 var cowsay = require('cowsay');
 var Discord = require('discord.js');
 var auth = require('./auth.json');
-var blacklist = require('./blacklist.json');
 
 // Initialize Discord Bot
 var bot = new Discord.Client();
@@ -15,42 +14,31 @@ bot.on('ready', function (evt) {
 var helpText = "Tell me to say something by\n" +
                "typing: cowsay <message>\n\n" +
                "Also try: cowthink <message>";
-var deniedText = "I'm sorry, I will not say that.";
 
 bot.on('message', message => {
-    if (message.content.startsWith('cowsay')||message.content.startsWith('Cowsay')) {
-        var text = message.content.substring('cowsay'.length + 1);
-        console.log("Request received");
-        if (blacklist.indexOf(message.author.id) != -1) {
-            console.log("User is blacklisted. Request will be denied.");
-            text = deniedText;
-        }
+    console.log("Request received");
+    var cowAction = null;
+    var messageText = message.content;
+    var messageIndex = 0;
 
-        if (text == "")
-            text = helpText;
-
-         text = text.replace(/```/g, '\'\'\'');
-        
-        var cowSaid = cowsay.say({
-            text: text,
-        });
-
-        message.channel.send('```' + cowSaid + '```');
-        console.log("Message sent");
+    if (messageText.startsWith('cowsay') || messageText.startsWith('Cowsay')) {
+        cowAction = cowsay.say;
+        messageIndex = 7;
     }
-    else if (message.content.startsWith('cowthink')||message.content.startsWith('Cowthink')) {
-        var text = message.content.substring('cowthink'.length + 1);
-        console.log("Request received");
-        if (blacklist.indexOf(message.author.id) != -1) {
-            console.log("User is blacklisted. Request will be denied.");
-            text = deniedText;
-        }
+    else if (messageText.startsWith('cowthink') || messageText.startsWith('Cowthink')) {
+        cowAction = cowsay.think;
+        messageIndex = 9;
+    }
+
+    if (cowAction != null) {
+        var text = messageText.substring(messageIndex);
+
         if (text == "")
             text = helpText;
 
-         text = text.replace(/```/g, '\'\'\'');
-        
-        var cowSaid = cowsay.think({
+        text = text.replace(/```/g, '\'\'\''); // ```
+
+        var cowSaid = cowAction({
             text: text,
         });
 
